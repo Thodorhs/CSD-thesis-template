@@ -1,3 +1,26 @@
 \section{Introduction}
 
-Vivamus nec sapien a lorem finibus convallis ut vitae eros. Integer id augue nec ex malesuada scelerisque. In ante velit, imperdiet sed ex non, ultrices laoreet urna. Morbi ut purus neque. Donec vulputate in urna non viverra. Mauris a mi vel augue auctor semper. Nam mollis commodo enim at imperdiet. In hac habitasse platea dictumst. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer scelerisque, sapien non tristique pharetra, purus purus tempor sem, quis ornare justo magna vitae nisl. Suspendisse potenti. Nulla et bibendum urna. Nam malesuada ac diam ut cursus \cite{lipsum}.
+\begin{itemize}
+  \item Problem statement
+  \begin{itemize}
+    \item High data growth problem and dram capacity scaling decreases
+    \item Big data frameworks require more memory
+  \end{itemize}
+
+  \item Possible approaches for more memory
+  \begin{itemize}
+    \item local storage device (e.g., NVMe SSD) or remote storage device or
+      remote memory 
+    \item Remote storage device or remote memory in case of disaggregated
+      datacenter
+    \item Storage device provide higher capacity than remote memory
+    \item Remote memory has lower latency
+    \item SPDK-nvme-of can reduce device latency
+  \end{itemize}
+
+  \item Evaluation of existing approaches in the context of managed big data
+    frameworks 
+  \item We use TeraHeap which is the state of the art
+
+  \item {Evaluation + some high level results}
+\end{itemize}
