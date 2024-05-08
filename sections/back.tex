@@ -19,7 +19,7 @@ secondary heap.
  Network Block Device (NBD) is a network protocol that can be used to export a block device from a server where the block device resides to a client. There are multiple NBD implementations
  some of them are :
  \begin{itemize}
- \item  \textbf{nbdkit} is a multithreaded NBD server with a plugin architecture.
+ \item  \textbf{nbdkit} is a multi-threaded NBD server with a plugin architecture.
  \item  \textbf{libnbd} is a library to aid in writing NBD clients
  \item  \textbf{qemu} contains an \textbf{embedded NBD server}, \textbf{an embedded NBD client}, and \textbf{a standalone NBD server} (qemu-nbd). They maintain a status document of their NBD implementation.
  \item  A \textbf{GEOM gate-based client implementation for FreeBSD} exists. It has not seen any updates since 2018, and only implements the client side (any server should run on FreeBSD unmodified, however).
