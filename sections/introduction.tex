@@ -2,7 +2,7 @@
 
 %% Demand for more memory
 Big data analytics frameworks running on managed runtimes, such as Java virtual
-machines (JVM) are widely deployed in datacenters to perform data analyis over
+machines (JVM) are widely deployed in data-centers to perform data analysis over
 large amount of datasets. The amount of data increases with high rate but DRAM
 capacity in a single server scales slower than data growth. Existing approaches
 study the extension of the managed heap over fast storage devices (e.g., NVMe
@@ -16,11 +16,13 @@ SSDs) and remote memory.
 %accessing local storage devices struggle to match the pace of data processing,
 %thereby becoming an overhead. Consequently, the rapid expansion of data
 %necessitates a swift and efficient mechanism for data movement to storage
-%devices. 
+%devices.
+Extended heap approaches can be categorized based on their implementation over different storage types: local storage devices, remote storage devices, remote DRAM memory and Hybrid heaps. Using an extended heap over a local storage device (e.g TeraHeap) typically  leverages the physical proximity and direct connection to enhance access speeds and reliability. In contrast, remote storage device implementations may benefit from centralized management and scalability but often at the cost of increased latency. Similarly, utilizing remote DRAM for extended heap operations (e.g Semeru, MemLiner, and Mako) offers high-speed access and large volatile memory space, though it requires robust network infrastructure to minimize latency and ensure data consistency. However, current research lacks a comprehensive comparison of these techniques. None of the existing work adequately addresses the pros and cons of each approach or explains why one might be preferable over the others. This gap highlights a need for detailed evaluative studies that assess the performance, reliability, and cost-effectiveness of each heap extension implementation method.
 
-%categorization of how you can have an extended heap ...
-%
-However,  non of existing work provide a comparison ... 
+%categorization of how you can have an extended heap approaches like using a extended heap over local storage device or over remote storage device or remote DRAM memory exist...
+
+%However, non of existing work provide a comparison between the techniques on what are the pros and cons and why they are better from one another...
+
 
 In this \textbf{comparative analysis}, we delve into possible strategies for
 achieving faster and more efficient block storage accessing while ensuring an
@@ -48,27 +50,18 @@ empowered by TeraHeap, furnishes high-level results that offer valuable insights
 into the comparative advantages and limitations of each storage solution.
 
 The selection among these options requires careful consideration of factors such as workload requirements and infrastructure configurations. The insights acquired by this study will play a pivotal role in informing decision-making processes related to resource allocation and system design, thereby contributing to the ongoing discourse on efficient data management in contemporary computing environments.
-\begin{itemize}
-  \item Problem statement
-  \begin{itemize}
-    \item High data growth problem and dram capacity scaling decreases
-    \item Big data frameworks require more memory
-  \end{itemize}
-
-  \item Possible approaches for more memory
-  \begin{itemize}
-    \item local storage device (e.g., NVMe SSD) or remote storage device or
-      remote memory 
-    \item Remote storage device or remote memory in case of disaggregated
-      datacenter
-    \item Storage device provide higher capacity than remote memory
-    \item Remote memory has lower latency
-    \item SPDK-nvme-of can reduce device latency
-  \end{itemize}
-
-  \item Evaluation of existing approaches in the context of managed big data
-    frameworks 
-  \item We use TeraHeap which is the state of the art
-
-  \item {Evaluation + some high level results}
-\end{itemize}
+%\begin{itemize}
+ %%% \item Problem statement
+ %% \begin{itemize}
+ %   \item High data growth problem and dram capacity scaling decreases
+ %   \item Big data frameworks require more memory
+ % \end{itemize}
+%  \item Possible approaches for more memory
+ % \begin{itemize}
+  %  \item local storage device (e.g., NVMe SSD) or remote storage device or remote memory
+   % \item Storage device provide higher capacity than remote memory
+    %\item Remote memory has lower latency
+%    \item SPDK-nvme-of can reduce device latency
+ % \end{itemize} 
+  %\item We use TeraHeap which is the state of the art {Evaluation + some high level results}
+%\end{itemize}
