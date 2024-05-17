@@ -17,7 +17,29 @@ SSDs) and remote memory.
 %thereby becoming an overhead. Consequently, the rapid expansion of data
 %necessitates a swift and efficient mechanism for data movement to storage
 %devices.
-Extended heap approaches can be categorized based on their implementation over different storage types: local storage devices, remote storage devices, remote DRAM memory and Hybrid heaps. Using an extended heap over a local storage device (e.g TeraHeap) typically  leverages the physical proximity and direct connection to enhance access speeds and reliability. In contrast, remote storage device implementations may benefit from centralized management and scalability but often at the cost of increased latency. Similarly, utilizing remote DRAM for extended heap operations (e.g Semeru, MemLiner, and Mako) offers high-speed access and large volatile memory space, though it requires robust network infrastructure to minimize latency and ensure data consistency. However, current research lacks a comprehensive comparison of these techniques. None of the existing work adequately addresses the pros and cons of each approach or explains why one might be preferable over the others. This gap highlights a need for detailed evaluative studies that assess the performance, reliability, and cost-effectiveness of each heap extension implementation method.
+Extended heap approaches can be categorized based on their implementation over
+different storage types: local storage devices, remote storage devices, remote
+DRAM memory and hybrid heaps \note{jk: term hybrid heap is when a managed heap
+  is extended over DRAM and a slower memory tier. so hybrid heaps is not
+correct}. Using an extended heap over a local storage device
+(e.g TeraHeap) typically  leverages the physical proximity and direct connection
+to enhance access speeds and reliability \note{jk: I do not understand the
+previous sentence}. In contrast, remote storage device
+implementations may benefit from centralized management and scalability but
+often at the cost of increased latency\note{jk: also storage device add latency.
+  I think you should discuss that some work leverage the capacity of the fast
+  storage devices. Other work, see that interconnects such as RDMA become
+faster, so they leverage remote memory}. Similarly, utilizing remote DRAM for
+extended heap operations (e.g Semeru, MemLiner, and Mako) offers high-speed
+access and large volatile memory space, though it requires robust network
+infrastructure \note{jk: how do you know if the infrastructure is robust. say
+what you want direct, no extra words.} to minimize latency and ensure data
+consistency. However, current research lacks a comprehensive comparison of these
+techniques. None of the existing work adequately addresses the pros and cons of
+each approach or explains why one might be preferable over the others. This gap
+highlights a need for detailed evaluative studies that assess the performance,
+reliability, and cost-effectiveness of each heap extension implementation
+method. \note{jk: I like the last two sentences}
 
 %categorization of how you can have an extended heap approaches like using a extended heap over local storage device or over remote storage device or remote DRAM memory exist...
 
@@ -49,7 +71,12 @@ nuanced insights into their performance characteristics. Our evaluation process,
 empowered by TeraHeap, furnishes high-level results that offer valuable insights
 into the comparative advantages and limitations of each storage solution.
 
-The selection among these options requires careful consideration of factors such as workload requirements and infrastructure configurations. The insights acquired by this study will play a pivotal role in informing decision-making processes related to resource allocation and system design, thereby contributing to the ongoing discourse on efficient data management in contemporary computing environments.
+The selection among these options requires careful consideration of factors such
+as workload requirements and infrastructure configurations. The insights
+acquired by this study will play a pivotal role in informing decision-making
+processes related to resource allocation and system design, thereby contributing
+to the ongoing discourse on efficient data management in contemporary computing
+environments.
 %\begin{itemize}
  %%% \item Problem statement
  %% \begin{itemize}
