@@ -2,23 +2,40 @@
 \section{Experimental Methodology}
 With our evaluation we try to answer: 
 
-1. Can remote storage options keep up with local ones in big data analytic frameworks.
+1. Can remote storage options keep up with local ones in big data analytic
+frameworks.
 
 2. what are the overheads presented with these options.
+
+\note{jk: Make the questions more specific. For example, add a question about
+granularity (e.g. 512b and 4KB). So, think carefully what was the evaluation
+about and write specific questions. Do not care if they are too much, we are
+going to reduce/merge them.}
 \vspace{1em}
 
-For the evaluation We use two servers with Intel Xeon E5-2630 32 Cores @ 2.4 GHz. Each server uses 256GB of DDR4 DRAM divided on two NUMA nodes, each with 16 threads. For storage we use Samsung 970 EVO Plus 2 TB PCIe Gen 3.0 x4 NVMe SSD. Each server is equipped with Mellanox Technologies ConnectX-3 Network controller MT27500 with fibre ports compliant with the InfiniBand Architecture Specification . The servers run CentOS version 7.9 with Linux kernel version is 5.4.267. Figure 4 shows the server specifications.
+For the evaluation qe use two servers with Intel Xeon E5-2630 32 Cores @ 2.4
+GHz. Each server uses 256GB of DDR4 DRAM divided on two NUMA nodes, each with 16
+threads. For storage we use Samsung 970 EVO Plus 2 TB PCIe Gen 3.0 x4 NVMe SSD.
+Each server is equipped with Mellanox Technologies ConnectX-3 Network controller
+MT27500 with fibre ports compliant with the InfiniBand Architecture
+Specification . The servers run CentOS version 7.9 with Linux kernel version is
+5.4.267. \note{jk: for tables use latex to create tables and not figures. In the
+text when you mention to a Table you say: ``as shown in TableXX'''} Figure 4 shows the server specifications.
+
 \begin{figure}[h]
 \includegraphics[scale=0.2]{figures/server_specs.drawio.png}\\
 \caption{Server specifications table.}
 \end{figure}
 \vspace{1em}
 
-\textbf{Flexible I/O (FIO) Tester}, is a widely used open-source tool in the
-Linux ecosystem for benchmarking and testing various I/O (input/output)
-workloads on storage devices. FIO provides detailed output reports, including metrics such as
-throughput, IOPS (input/output operations per second), latency, and CPU
-utilization. We will use FIO for generating I/O  and break down the latency created by using each block device system (local, remote) and compare them to have a better understanding. We will compare accessing latency of each of the following systems:
+\textbf{Flexible I/O (FIO) Tester.}
+FIO is a widely used open-source tool in the Linux ecosystem for benchmarking
+and testing various I/O (input/output) workloads on storage devices. FIO
+provides detailed output reports, including metrics such as throughput, IOPS
+(input/output operations per second), latency, and CPU utilization. \note{jk: in
+the papers we write in present simple} We \note{jk: do not use will} will use
+FIO \note{jk: to measure the latency of each different device}
+\note{transform the list into table} We will compare accessing latency of each of the following systems: 
 \begin{itemize}
     \item Local NVMe drives
     \item Local Ram-disk
@@ -31,7 +48,16 @@ utilization. We will use FIO for generating I/O  and break down the latency crea
 \end{itemize}
 \vspace{1em}
 
-\textbf{Netperf} is a benchmarking tool used to measure the performance of networking systems. It's designed to provide a standardized method for measuring networking performance between two systems. Netperf allows users to test various aspects of networking performance, such as throughput, latency, and jitter, across different network protocols like TCP (Transmission Control Protocol) and UDP (User Datagram Protocol). We will use Netperf to measure end-to-end latency of TCP (Transmission Control Protocol) To better understand the latency of systems like Network Block Device (NBD) which uses TCP to export the block device to the network.
+\textbf{Netperf.} 
+Netperf is a benchmarking tool used to measure the performance of networking
+systems. It's designed to provide a standardized method for measuring networking
+performance between two systems. Netperf allows users to test various aspects of
+networking performance, such as throughput, latency, and jitter, across
+different network protocols like TCP (Transmission Control Protocol) and UDP
+(User Datagram Protocol). We will use Netperf to measure end-to-end latency of
+TCP (Transmission Control Protocol) To better understand the latency of systems
+like Network Block Device (NBD) which uses TCP to export the block device to the
+network.
 \vspace{1em}
 
 \textbf{TeraHeap} is a system that eliminates S/D overhead and expensive GC scans for a
